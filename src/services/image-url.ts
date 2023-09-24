@@ -9,7 +9,10 @@ const croppedImageUrl = ({
 }) => {
   const target = "media/";
   const index = url.indexOf(target) + target.length;
-  return `${url.slice(0, index)}crop/${width}/${height}/${url.slice(index)}`;
+  const prefix = url.slice(0, index);
+  const postfix = url.slice(index);
+  
+  return `${prefix}crop/${width}/${height}/${postfix}`;
 };
 
 export default croppedImageUrl;
